@@ -1,0 +1,24 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{Brendan Michael}
+\title{Writing a formal definition of data processing }
+\begin{document}
+\maketitle
+
+\section{Dataset}
+
+A dataset for an individual motion $M_1$ is given by a matrix $\mathbf{D}\in\mathbb{R}^{I \times S \times F }$, where $I$ is the number of input measurements, $S$ is the number of sensors, and $F$ is the number of frames.
+
+For P1M1C1F1, $I=3$ ($x-axis$ position, $y-axis$ position, and $z-axis$ position), $S=8472$, and $F=522$. For example, the position in the $x-axis$ of the first sensor, in the first frame is denoted $\mathbf{D}_{\{1,1,1\}}$.
+
+\section{Correlation Analysis}
+
+To compute the correlation between two individual sensors $i$ and $j$, the following equation is used:
+
+\begin{equation}
+Cor(D_i,D_j) = \dots
+\end{equation}
+\end{document}
