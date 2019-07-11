@@ -1,5 +1,5 @@
-import pandas as pd
-import numpy as np
+
+from operator import add
 
 d = list(range(8472))
 corr = []
@@ -19,37 +19,46 @@ for i in range(len(d)):
 ##print len(corr[8469]) -->2
 ##print len(corr[8470]) -->1
 ##print len(corr[8471]) -->0
-
+corr_float =[]
 for i in range(len(corr)):
-    zeros = [0]*(i+1)
-    corr[i] = zeros + corr[i]
+    per = []
+    for j in range(len(corr[i])):
+        a = float(corr[i][j])
+        a = round(a,5)
+        per.append(a)
+    corr_float.append(per)
 
-df = pd.DataFrame(corr)
+for i in range(len(corr_float)):
+    zeros = [0]*(i+1)
+    corr_float[i] = zeros + corr_float[i]
 
 clustering = []
-for i in range(len(corr)):
+for i in range(len(corr_float)):
     clustering.append([i])
 print clustering
+
+a_flatten = reduce(add, corr_float )
+a_flatten = list(dict.fromkeys(a_flatten))
+a_flatten.sort(reverse=True)
 
 z = 0
 while True:
     z = z +1
     print z
 
-    t = df.stack().index[np.argmax(df.values)]
-    value = df[t[1]][t[0]]
+    value = a_flatten[0]
 
     indexes = []
-    for i in range(len(corr)):
-        for j in range(len(corr[i])):
-            if corr[i][j] == value:
+    for i in range(len(corr_float)):
+        for j in range(len(corr_float[i])):
+            if corr_float[i][j] == value:
                 u = (i,j)
                 indexes.append(u)
 
-    for i in range(len(indexes)):
-        df[indexes[i][1]][indexes[i][0]] = 0
+    a_flatten.pop(0)
 
     for i in range(len(indexes)):
+        print i
         pem = []
         for j in range(len(clustering)):
             if indexes[i][0] in clustering[j]:
@@ -72,7 +81,7 @@ while True:
         break
 
 for i in range(len(clustering)):
-    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M1C1F1\correlation\data%s.txt"%i,"w")
+    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M1C1F1\Clustering\cluster%s.txt"%i,"w")
     for j in range(len(clustering[i])):
         a = str(clustering[i][j])
         f.write(a)
