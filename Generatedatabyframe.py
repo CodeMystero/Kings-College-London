@@ -3,7 +3,7 @@ del d[0]
 data = []
 for i in range(len(d)):
     L = []
-    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M2C1F1\data_0000%s.txt"%d[i],"r")
+    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M1C1F1\data_0000%s.txt"%d[i],"r")
     lines = file.readlines(f)
     file.close(f)
 
@@ -22,7 +22,7 @@ for i in range(len(d)):
 
 for i in range(len(data)):
     print i
-    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M2C1F1\databyframe\data%s.txt"%i,"w")
+    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M1C1F1\databyframe\data%s.txt"%i,"w")
     for j in range(len(data[i])):
         a = str(data[i][j])
         a = a.strip("v ")

@@ -1,13 +1,13 @@
 import numpy as np
 from numpy import linalg as LA
 
-d = list(range(424))
+d = list(range(8472))
 final_data = []
 final_data_1d = []
 for i in range(len(d)):
     print i
     L = []
-    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M2C1F1\databysensors_reduced\sensor%s.txt"%d[i],"r")
+    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M1C1F1\databytranjectory\data%s.txt"%d[i],"r")
     lines = file.readlines(f)
     file.close(f)
 
@@ -150,7 +150,7 @@ for i in range(len(d)):
 
 for i in range(len(final_data)):
     print i
-    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M2C1F1\PCA2D_reduced\sensor%s.txt"%d[i],"w")
+    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M1C1F1\PCA2D\data%s.txt"%d[i],"w")
     for k in range(len(final_data[i])):
         a = str(final_data[i][k])
         a = a.strip("[")
@@ -163,7 +163,7 @@ f.close()
 
 for i in range(len(final_data_1d)):
     print i
-    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M2C1F1\PCA1D_reduced\sensor%s.txt"%d[i],"w")
+    f = open("C:\Users\hwani\Desktop\Project\Dataset\P1M1C1F1\PCA1D\data%s.txt"%d[i],"w")
     for k in range(len(final_data_1d[i])):
         a = str(final_data_1d[i][k])
         a = a.strip("[")
